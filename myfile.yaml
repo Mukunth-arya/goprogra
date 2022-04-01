@@ -12,9 +12,9 @@
     
         
     - name: here we build docker file
-      command: docker build -t myapp2
+      command: docker build -t myapp2 .
       args:
-        chdir: /home/go
+        chdir: /home/go/
       
     - name: here comes the play to push to docker file
       docker_image:

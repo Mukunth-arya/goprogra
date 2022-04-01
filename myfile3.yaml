@@ -1,9 +1,11 @@
 ---
 - name: here we add the master cluster
-  hosts: all
+  hosts: master
   become: true
   tasks:
     - name: here we initialize the cluster
       command: kubeadm init --apiserver-advertise-address=192.168.43.91 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
-      delegate_to: 
-    - name: 
+    - name: here we copy the file
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: 

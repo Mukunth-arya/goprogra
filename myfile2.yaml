@@ -1,6 +1,6 @@
 ---
 - name: here comes the play install kubernetes 
-  hosts: myplay
+  hosts: all
   become: true
   tasks:
     - name: here we install the apt-get-transort kubernetes cluster installation

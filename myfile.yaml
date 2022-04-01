@@ -8,22 +8,22 @@
       apt:
         name: docker.io
         state: present
-        delegate_to: 127.0.0.1
+        
     - name: here comes the play to dockerlogin
       docker_login:
         username: mukuntharya2022
         password: mukunth@1996
         email: mukuntharya2022@gmail.com
-        delegate_to: 127.0.0.1
+        
     - name: here we build docker file
       command: docker build -t myapp2
       args:
         chdir: /home/go
-      delegate_to: 127.0.0.1
+      
     - name: here comes the play to push to docker file
       docker_image:
         name: myapp2
         repository: mukuntharya2022/myapp2
         push: yes
-      delegate_to: 127.0.0.1
+      
 ...

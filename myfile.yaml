@@ -1,0 +1,23 @@
+---
+- name: here comes the playbook for executing the play
+  hosts: myplay
+  become: true
+  tasks:
+    - name: here comes the play install the docker
+      apt:
+        name: docker.io
+        state: present
+    - name: here comes the play to docker_login
+      username: bXVrdW50aGFyeWEyMDIyCg==
+      password: bXVrdW50aEAxOTk2Cg==
+      email: mukuntharya2022@gmail.com
+    - name: here we build docker file
+      command: docker build -t myapp2 .
+      args:
+        chdir: /home/go
+    - name: here comes the play to push to docker file
+      docker_image:
+        name: myapp2
+        repository: mukuntharya2022/myapp2
+        push: yes
+...

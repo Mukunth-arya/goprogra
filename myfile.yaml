@@ -1,6 +1,6 @@
 ---
 - name: here comes the playbook for executing the play
-  hosts: myplay
+  hosts: master
   become: true
   tasks:
     - name: here comes the play install the docker

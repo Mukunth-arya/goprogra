@@ -8,8 +8,8 @@
         name: docker.io
         state: present
     - name: here comes the play to docker_login
-      username: bXVrdW50aGFyeWEyMDIyCg==
-      password: bXVrdW50aEAxOTk2Cg==
+      username: mukuntharya2022
+      password: mukunth@1996
       email: mukuntharya2022@gmail.com
     - name: here we build docker file
       command: docker build -t myapp2 .

@@ -2,6 +2,7 @@
 - name: here comes the playbook for executing the play
   hosts: master
   become: true
+  remote_user: true
   tasks:
     - name: here comes the play install the docker
       apt:

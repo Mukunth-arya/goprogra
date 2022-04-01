@@ -1,6 +1,6 @@
 ---
 - name: here comes the playbook for executing the play
-  hosts: all
+  hosts: master
   become: true
   remote_user: mukunth
   tasks:

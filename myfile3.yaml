@@ -8,4 +8,7 @@
     - name: here we copy the file
       copy:
         src: /etc/kubernetes/admin.conf
-        dest: 
+        dest: /home/mukunth/mylocal.conf
+        remote_src: yes
+        owner: mukunth
+...

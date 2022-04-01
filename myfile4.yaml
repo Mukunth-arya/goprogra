@@ -1,3 +1,21 @@
 ---
 - name: here comes the play to join print command
-  hosts: 
+  hosts: master
+  become: true
+  tasks:
+    - name: here we add the token to add to worker node
+      command: kubeadm token create --print-join-command
+      register: mytoken
+    - name: here we setfact the token 
+      set_fact: 
+        mytoken: "{{ mytoken.stdout_lines[0] }}"
+
+...
+---
+- name: heew we generate the host to join the token
+  hosts: worker
+  become: true
+  tasks:
+    - name: here we add the token key
+      command: "{{ hostvars[master].mytoken }}"
+...

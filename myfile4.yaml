@@ -16,6 +16,10 @@
   hosts: worker
   become: true
   tasks:
+    - name: here we install docker
+      apt:
+        name: docker.io
+        state: present
     - name: here we add the token key
       command: "{{ hostvars[master].mytoken }}"
 ...

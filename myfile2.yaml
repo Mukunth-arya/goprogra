@@ -1,2 +1,30 @@
 ---
 - name: here comes the play install kubernetes 
+  hosts: myplay
+  become: true
+  tasks:
+    - name: here we install the apt-get-transort kubernetes cluster installation
+      apt:
+        name: apt-transport-https
+        state: present
+    - name: here we add the key for the repo
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+    - name: here we add the repository
+      apt_repository:
+        repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+    - name: here we install kubelet service
+      apt:
+        name: kubelet=1.18.5-00
+        state: present
+    - name: here we install kubeadm service
+      apt:
+        name: kubeadm=1.18.5-00
+        state: present
+    - name: here we install kubectl service
+      apt:
+        name: kubeadm=1.18.5-00 
+        state: present
+        

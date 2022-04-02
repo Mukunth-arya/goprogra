@@ -6,13 +6,7 @@
   tasks:
     - name: here we turn off the firewall state
       command: sudo ufw disable
-    - name: here we turn add the iptables rules
-      command: cat >>/etc/sysctl.d/kubernetes.conf<<EOF
-               net.bridge.bridge-nf-call-ip6tables = 1
-               net.bridge.bridge-nf-call-iptables = 1
-               EOF
-               sysctl --system
-         
+    
     - name: here we initialize the cluster
       command: kubeadm init --apiserver-advertise-address=192.168.43.91 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
     - name: here we copy the file

@@ -2,6 +2,7 @@
 - name: here we add the master cluster
   hosts: master
   become: true
+  remote_user: mukunth
   tasks:
     - name: here we turn off the firewall state
       command: sudo ufw disable

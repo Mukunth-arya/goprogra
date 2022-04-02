@@ -6,8 +6,6 @@
   tasks:
     - name: here we turn off the firewall state
       command: sudo ufw disable
-    - name: here we turn off the swap
-      command: swapoff -a; sed -i '/swap/d' /etc/fstab
     - name: here we turn add the iptables rules
       command: cat >>/etc/sysctl.d/kubernetes.conf<<EOF
                net.bridge.bridge-nf-call-ip6tables = 1
